@@ -1,13 +1,16 @@
 FROM nginx:alpine
 
-# Copie de la configuration Nginx
+# Installer openssl
+RUN apk add --no-cache openssl
+
+# Copier la configuration Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Script d'initialisation pour générer le certificat
+# Copier le script d'entrée
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Création du dossier SSL
+# Créer le dossier SSL
 RUN mkdir -p /etc/nginx/ssl
 
 # Point d'entrée
