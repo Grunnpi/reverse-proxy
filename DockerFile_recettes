@@ -4,7 +4,8 @@ FROM nginx:alpine
 RUN apk add --no-cache openssl
 
 # Copier la configuration Nginx
-COPY nginx-recettes.conf /etc/nginx/nginx.conf
+#COPY nginx-recettes.conf /etc/nginx/nginx.conf
+COPY ngnix-civi.conf /etc/nginx/nginx.conf
 
 # Copier le script d'entrée
 COPY entrypoint.sh /entrypoint.sh
